@@ -19,6 +19,7 @@ router.get("/login/success", (req, res) => {
 });
 
 router.get("/current_user", (req, res) => {
+	console.log("/current_user.req",req)
     if (req.user) {
 		res.status(200).json({
 			error: false,
