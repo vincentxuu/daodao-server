@@ -76,7 +76,18 @@ const update = async (req, res, next) => {
 };
 
 
+const getAllUser = async  (req, res, next) => {
+    try{
+        let user =  await User.find({});
+        res.json(user)
+    }catch(error){
+        next(error);
+    }
+
+};
+
 module.exports = {
     profile,
     update,
+    getAllUser
 };
