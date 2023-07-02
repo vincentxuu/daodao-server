@@ -4,7 +4,7 @@ const { profile, update ,getAllUser} = require("../controller/user.controller");
 const { isUserAuthenticated } = require("../middlewares/auth");
 
 
-const CLIENT_URL = "https://daodao-f2e-pi.vercel.app/";
+const CLIENT_URL = "http://localhost:5000/";
 
 router.get("/login/success", (req, res) => {
 	if (req.user) {
