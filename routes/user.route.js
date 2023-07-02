@@ -4,7 +4,7 @@ const { profile, update ,getAllUser} = require("../controller/user.controller");
 const { isUserAuthenticated } = require("../middlewares/auth");
 
 
-const CLIENT_URL = "https://daodao-f2e-pi.vercel.app/";
+const CLIENT_URL = "https://daodao-f2e-pi.vercel.app";
 
 router.get("/login/success", (req, res) => {
 	if (req.user) {
@@ -19,11 +19,15 @@ router.get("/login/success", (req, res) => {
 });
 
 router.get("/current_user", (req, res) => {
-    res.status(200).json({
-        error: false,
+    if (req.user) {
+		res.status(200).json({
+			error: false,
 			message: "Successfully Loged In",
 			user: req.user,
 		});
+	} else {
+		res.status(403).json({ error: true, message: "Not Authorized" });
+	}
   });
 
 router.post("/update", update);
