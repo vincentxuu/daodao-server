@@ -41,7 +41,7 @@ passport.use(new GoogleStrategy(
                 photoURL: profile.photos[0].value,
                 isOpenLocation: false,
                 isOpenProfile: false,
-                isSubscribeEmail: false,
+                isSubscribeEmail_: false,
                 location: '',
                 selfIntroduction: '',
                 share: '',
