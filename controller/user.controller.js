@@ -1,6 +1,7 @@
 const User = require("../models/user.model")
 
 const profile = async (req, res, next) => {
+    console.log("req:",req)
     console.log("req.sessionStore.sessions:",req.sessionStore.sessions)
     console.log("req.sessionStore.sessions.passport:",req.sessionStore.sessions.passport)
     try {
