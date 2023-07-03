@@ -10,13 +10,14 @@ const AUTH_OPTIONS = {
 
 passport.serializeUser((user, done) => {
     console.log("SerializeUser")
-    console.log(user)
+    console.log("SerializeUser:",user)
     done(null, user._id);
 });
 
 passport.deserializeUser(async (_id, done) => {
     console.log("DeserializeUser")
     let foundUser = await User.findOne({ _id });
+    console.log("DeserializeUser:",foundUser)
     done(null, foundUser)
 })
 
