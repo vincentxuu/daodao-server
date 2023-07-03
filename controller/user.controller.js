@@ -2,9 +2,9 @@ const User = require("../models/user.model")
 
 const profile = async (req, res, next) => {
     console.log("req.sessionStore.sessions:",req.sessionStore.sessions)
-    console.log("req.sessionStore.sessions.passport.user:",req.sessionStore.sessions.passport.user)
+    console.log("req.sessionStore.sessions.passport:",req.sessionStore.sessions.passport)
     try {
-        let user = await User.findById(req.session.passport.user);
+        let user = await User.findById(req.sessionStore.sessions.passport);
         console.log("user:",user)
         if (user) {
             return res.status(201).json({
