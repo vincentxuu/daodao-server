@@ -4,6 +4,8 @@ const profile = async (req, res, next) => {
     console.log("req:",req)
     console.log("req.sessionStore.sessions:",req.sessionStore.sessions)
     console.log("req.sessionStore.sessions.passport:",req.sessionStore.sessions.passport)
+    const { user } = req.sessionStore.sessions;
+    console.log("user:",user)
     try {
         let user = await User.findById(req.sessionStore.sessions.passport);
         console.log("user:",user)
