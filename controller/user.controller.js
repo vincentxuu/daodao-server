@@ -10,13 +10,12 @@ const profile = async (req, res, next) => {
         let user = await User.findById(req.sessionStore.sessions.passport);
         console.log("user:",user)
         if (user) {
-            return res.status(201).json({
+            return res.status(200).json({
                 user
             });
         } else {
             let error = new Error("User not found");
-            error.statusCode = 404;
-            next(error);
+            next(error);    
         }
     } catch (error) {
         next(error);
