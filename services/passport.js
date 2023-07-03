@@ -8,7 +8,6 @@ const AUTH_OPTIONS = {
     callbackURL: "https://daodao-server.vercel.app/auth/google/callback"
 }
 
-
 passport.serializeUser((user, done) => {
     console.log("SerializeUser")
     console.log(user)
