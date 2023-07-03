@@ -1,6 +1,7 @@
 const User = require("../models/user.model")
 
 const profile = async (req, res, next) => {
+    console.log("req.sessionStore.sessions:",req.sessionStore.sessions)
     console.log("req.sessionStore.sessions.passport.user:",req.sessionStore.sessions.passport.user)
     try {
         let user = await User.findById(req.session.passport.user);
