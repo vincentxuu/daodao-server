@@ -2,11 +2,15 @@ const User = require("../models/user.model")
 
 const profile = async (req, res, next) => {
     let object = req.sessionStore.sessions
+    console.log("object:",object)
+
     result = Object.keys(object).reduce(function (value, key) {
         return value.concat(key, object[key]);
     }, []);
     let newObject = JSON.parse(result[1])
     let newResult = newObject["passport"]
+
+    console.log("newResult:",newResult)
 
     try {
         let user = await User.findById(newResult.user);
