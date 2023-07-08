@@ -12,7 +12,7 @@ const profile = async (req, res, next) => {
     let num = result.length
     console.log("num:",num)
 
-    let newNum = math(num-1)
+    let newNum = Math.floor(num-1)
     console.log("newNum:",newNum,"typeof newNum:",typeof(newNum))
     let newObject = JSON.parse(result[newNum])
     let newResult = newObject["passport"]
