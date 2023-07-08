@@ -7,7 +7,8 @@ const profile = async (req, res, next) => {
     result = Object.keys(object).reduce(function (value, key) {
         return value.concat(key, object[key]);
     }, []);
-    let newObject = JSON.parse(result[1])
+    let num = result.length
+    let newObject = JSON.parse(result[num])
     let newResult = newObject["passport"]
 
     console.log("newResult:",newResult)
