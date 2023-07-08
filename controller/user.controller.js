@@ -1,17 +1,22 @@
 const User = require("../models/user.model")
 
 const profile = async (req, res, next) => {
-    console.log("req.session.passport.user:",req.session.passport.user)
+    let object = req.sessionStore.sessions
+    result = Object.keys(object).reduce(function (value, key) {
+        return value.concat(key, object[key]);
+    }, []);
+    let newObject = JSON.parse(result[1])
+    let newResult = newObject["passport"]
+
     try {
-        let user = await User.findById(req.session.passport.user);
+        let user = await User.findById(newResult.user);
         console.log("user:",user)
         if (user) {
-            return res.status(201).json({
+            return res.status(200).json({
                 user
             });
         } else {
             let error = new Error("User not found");
-            error.statusCode = 404;
             next(error);
         }
     } catch (error) {
