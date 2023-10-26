@@ -11,7 +11,7 @@ router.get("/google",
 );
 
 router.get("/google/callback", passport.authenticate("google"), async(req, res) => {
-    return res.redirect('https://daodao-f2e-pi.vercel.app/signin');
+    return res.redirect('http://localhost:5000/signin');
 });
 
 

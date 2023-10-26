@@ -92,6 +92,19 @@ const update = async (req, res, next) => {
         next(error);
     }
 };
+const getUser = async  (req, res, next) => {
+    console.log('req',req)
+    const _id = req.body.id
+    console.log(_id)
+    try{
+        let user =  await User.findOne({_id});
+        console.log("getUser:",user)
+        res.json(user)
+    }catch(error){
+        next(error);
+    }
+
+};
 
 
 const getAllUser = async  (req, res, next) => {
@@ -107,5 +120,6 @@ const getAllUser = async  (req, res, next) => {
 module.exports = {
     profile,
     update,
+    getUser,
     getAllUser
 };

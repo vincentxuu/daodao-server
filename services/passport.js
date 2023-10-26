@@ -5,7 +5,7 @@ const User = require("../models/user.model");
 const AUTH_OPTIONS = {
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "https://daodao-server.onrender.com/auth/google/callback"
+    callbackURL: "http://localhost:3000/auth/google/callback"
 }
 
 passport.serializeUser((user, done) => {
