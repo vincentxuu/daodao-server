@@ -3,8 +3,7 @@ const router = express.Router();
 const { profile, update ,getUser,getAllUser} = require("../controller/user.controller");
 const { isUserAuthenticated } = require("../middlewares/auth");
 
-
-const CLIENT_URL = "http://localhost:5000";
+const CLIENT_URL = "https://daodao-f2e-pi.vercel.app";
 
 router.get("/login/success", (req, res) => {
 	if (req.user) {
@@ -19,10 +18,8 @@ router.get("/login/success", (req, res) => {
 });
 
 // router.get("/current_user", (req, res) => {
-// 	console.log("/current_user.req:",req);
+// 	console.log("/current_user.req",req)
 // 	console.log("req.session:",req.session)
-// 	console.log("req.session.passport.user:",req.session.passport.user)
-
 //     if (req.user) {
 // 		res.status(200).json({
 // 			error: false,
@@ -35,7 +32,6 @@ router.get("/login/success", (req, res) => {
 //   });
 
 router.get("/current_user", profile);
-
 router.post("/update", update);
 
 router.post("/one_User", getUser);

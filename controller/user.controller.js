@@ -2,11 +2,22 @@ const User = require("../models/user.model")
 
 const profile = async (req, res, next) => {
     let object = req.sessionStore.sessions
+    console.log("object:",object)
+
     result = Object.keys(object).reduce(function (value, key) {
         return value.concat(key, object[key]);
     }, []);
-    let newObject = JSON.parse(result[1])
+    console.log("result:",result)
+
+    let num = result.length
+    console.log("num:",num)
+
+    let newNum = Math.floor(num-1)
+    console.log("newNum:",newNum,"typeof newNum:",typeof(newNum))
+    let newObject = JSON.parse(result[newNum])
     let newResult = newObject["passport"]
+
+    console.log("newResult:",newResult)
 
     try {
         let user = await User.findById(newResult.user);
@@ -17,7 +28,7 @@ const profile = async (req, res, next) => {
             });
         } else {
             let error = new Error("User not found");
-            next(error);
+            next(error);    
         }
     } catch (error) {
         next(error);
