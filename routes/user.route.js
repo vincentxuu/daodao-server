@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { profile, update ,getAllUser} = require("../controller/user.controller");
+const { profile, update ,getUser,getAllUser} = require("../controller/user.controller");
 const { isUserAuthenticated } = require("../middlewares/auth");
 
 
-const CLIENT_URL = "http://localhost:5000/";
+const CLIENT_URL = "http://localhost:5000";
 
 router.get("/login/success", (req, res) => {
 	if (req.user) {
@@ -37,6 +37,8 @@ router.get("/login/success", (req, res) => {
 router.get("/current_user", profile);
 
 router.post("/update", update);
+
+router.post("/one_User", getUser);
 
 router.get("/all_User", getAllUser);
 
