@@ -109,6 +109,7 @@ const update = async (req, res, next) => {
 const getPartner = async (req, res, next) => {
     try {
         const { query: { page, pageSize, _id, educationStage, location, tag } } = req;
+        const email = req.params.email;
 
         const filter = {};
         if( _id) {
@@ -126,14 +127,15 @@ const getPartner = async (req, res, next) => {
         if (tag) {
             filter.tag = tag;
         }
+        if (email) {
+            filter.email = email;
+        }
+        
 
-        // 计算总记录数
         const totalCount = await User.countDocuments(filter);
 
-        // 计算总页数
         const totalPages = Math.ceil(totalCount / pageSize);
 
-        // 查询数据库，根据筛选条件和分页参数获取数据
         console.log('users_filter',filter)
 
         const users = await User.find(filter)

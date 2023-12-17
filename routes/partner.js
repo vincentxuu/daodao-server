@@ -19,7 +19,7 @@ router.get("/login/success", (req, res) => {
 
 router.get("/", getPartner);
 
-router.get("/:email", profile);
+router.get("/:email", getPartner);
 
 router.post("/update", update);
 
