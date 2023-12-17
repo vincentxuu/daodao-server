@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
-const partnerRoutes = require('./routes/partner');
+const partnerRoutes = require('./routes/user');
 const tagRoutes = require('./routes/tag');
 const session = require("express-session");
 const passport = require("passport");
@@ -34,7 +34,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use('/auth', authRoutes);
 app.use('/user', userRoutes);
-app.use('/partner', partnerRoutes);
 app.use('/tag', tagRoutes);
 
 app.get('/', (req, res) => {

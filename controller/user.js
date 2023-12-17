@@ -1,41 +1,56 @@
 const User = require("../models/user.model")
-
-const profile = async (req, res, next) => {
-    // console.log("req_login",req);
-    let object = req.sessionStore.sessions
-    // console.log("object:",object)
-
-    result = Object.keys(object).reduce(function (value, key) {
-        return value.concat(key, object[key]);
-    }, []);
-    // console.log("result:",result)
-
-    let num = result.length
-    // console.log("num:",num)
-
-    let newNum = Math.floor(num-1)
-    // console.log("newNum:",newNum,"typeof newNum:",typeof(newNum))
-    let newObject = JSON.parse(result[newNum])
-    let newResult = newObject["passport"]
-
-    // console.log("newResult:",newResult)
-
+const getPartner = async (req, res, next) => {
     try {
-        let user = await User.findById(newResult.user);
-        // console.log("user:",user)
-        if (user) {
-            return res.status(200).json({
-                user
-            });
-        } else {
-            let error = new Error("User not found");
-            next(error);    
+        const { query: { page, pageSize, _id, educationStage, location, tag } } = req;
+
+        const filter = {};
+        if( _id) {
+                filter._id = _id;
         }
+
+        if (educationStage) {
+            filter.educationStage = educationStage;
+        }
+
+        if (location) {
+            filter.location = location;
+        }
+
+        if (tag) {
+            filter.tag = tag;
+        }
+        
+
+        const totalCount = await User.countDocuments(filter);
+
+        const totalPages = Math.ceil(totalCount / pageSize);
+
+        console.log('users_filter',filter)
+
+        const users = await User.find(filter)
+            .skip((page - 1) * pageSize)
+            .limit(pageSize);
+
+        console.log('users',users)
+
+        console.log('res.json',{
+            data: users,
+            page,
+            pageSize,
+            totalCount,
+            totalPages,
+        })
+        res.json({
+            data: users,
+            page,
+            pageSize,
+            totalCount,
+            totalPages,
+        });
     } catch (error) {
         next(error);
     }
 };
-
 const update = async (req, res, next) => {
     try {
         // console.log("req:",req)
@@ -93,34 +108,8 @@ const update = async (req, res, next) => {
         next(error);
     }
 };
-const getUser = async  (req, res, next) => {
-    console.log('req',req)
-    const _id = req.body.id
-    console.log(_id)
-    try{
-        let user =  await User.findOne({_id});
-        console.log("getUser:",user)
-        res.json(user)
-    }catch(error){
-        next(error);
-    }
-
-};
-
-
-const getAllUser = async  (req, res, next) => {
-    try{
-        let user =  await User.find({});
-        res.json(user)
-    }catch(error){
-        next(error);
-    }
-
-};
 
 module.exports = {
-    profile,
+    getPartner,
     update,
-    getUser,
-    getAllUser
 };
