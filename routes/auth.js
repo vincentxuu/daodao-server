@@ -3,6 +3,8 @@ const router = express.Router();
 const passport = require("passport");
 
 
+
+
 router.get("/google",
     passport.authenticate("google", {
         scope: ["profile", "email"],
@@ -11,7 +13,8 @@ router.get("/google",
 );
 
 router.get("/google/callback", passport.authenticate("google"), async(req, res) => {
-    return res.redirect('http://localhost:5000/signin');
+    console.log("google/callback_req.session", req);
+    return res.redirect(`${process.env.GOOGLE_REDIRECT_URL}?id=${req.user._id}`);
 });
 
 

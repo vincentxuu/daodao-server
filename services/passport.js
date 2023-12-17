@@ -5,7 +5,7 @@ const User = require("../models/user.model");
 const AUTH_OPTIONS = {
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/callback"
+    callbackURL: process.env.GOOGLE_CALLBACK_URL
 }
 
 passport.serializeUser((user, done) => {
@@ -24,11 +24,11 @@ passport.deserializeUser(async (_id, done) => {
 passport.use(new GoogleStrategy(
     AUTH_OPTIONS,
     async (accessToken, refreshToken, profile, done) => {
-        // console.log(profile);
+        console.log('passport_profile',profile);
         let foundUser = await User.findOne({ googleID: profile.id }).exec();
         if (foundUser) {
             console.log("使用者已註冊");
-            done(null, foundUser);
+            return done(null, foundUser);
         } else {
             console.log("新用戶註冊");
             let newUser = new User({
@@ -48,7 +48,8 @@ passport.use(new GoogleStrategy(
             });
             let saveUser = await newUser.save();
             console.log("成功建立新用戶")
-            done(null, saveUser);
+            
+            return done(null, saveUser);
         }
     })
 );

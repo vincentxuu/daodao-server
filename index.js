@@ -4,8 +4,10 @@ const cors = require("cors");
 const path = require('path');
 const dotenv = require('dotenv');
 dotenv.config();
-const authRoutes = require('./routes/auth.route');
-const userRoutes = require('./routes/user.route');
+const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/user');
+const partnerRoutes = require('./routes/partner');
+const tagRoutes = require('./routes/tag');
 const session = require("express-session");
 const passport = require("passport");
 require("./services/passport");
@@ -16,7 +18,7 @@ const app = express();
 app.use(express.json());
 app.use(
     cors({
-      origin: "http://localhost:5000",
+      origin: [process.env.FRONTEND_URL,'https://daodao-f2e-daodaoedu.vercel.app/'],
       methods: "GET,POST,PUT,DELETE",
       credentials: true,
     })
@@ -32,6 +34,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use('/auth', authRoutes);
 app.use('/user', userRoutes);
+app.use('/partner', partnerRoutes);
+app.use('/tag', tagRoutes);
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
