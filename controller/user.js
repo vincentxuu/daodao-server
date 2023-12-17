@@ -1,7 +1,8 @@
 const User = require("../models/user.model")
 const getPartner = async (req, res, next) => {
     try {
-        const { query: { page, pageSize, _id, educationStage, location, tag } } = req;
+        const { query: { page, pageSize, educationStage, location, tag } } = req;
+        const _id = req.params.id;
 
         const filter = {};
         if( _id) {
