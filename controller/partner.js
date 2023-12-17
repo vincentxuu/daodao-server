@@ -109,7 +109,6 @@ const update = async (req, res, next) => {
 const getPartner = async (req, res, next) => {
     try {
         const { query: { page, pageSize, _id, educationStage, location, tag } } = req;
-        const email = req.params.email;
 
         const filter = {};
         if( _id) {
@@ -126,9 +125,6 @@ const getPartner = async (req, res, next) => {
 
         if (tag) {
             filter.tag = tag;
-        }
-        if (email) {
-            filter.email = email;
         }
         
 
