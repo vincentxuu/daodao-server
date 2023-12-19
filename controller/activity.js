@@ -3,7 +3,8 @@ const User = require("../models/user.model");
 
 const getActivity = async (req, res, next) => {
     try {
-        const { query: { id,page, pageSize,area, partnerEducationStep, isGrouping, category } } = req;
+        const { query: { page, pageSize,area, partnerEducationStep, isGrouping, category } } = req;
+        const id = req.params.id;
         const userId = req.params.userId;
         console.log('getActivity',userId);
 
@@ -61,7 +62,7 @@ const getActivity = async (req, res, next) => {
     }
 };
 
-const create = async(req, res, next) => {
+const createActivity = async(req, res, next) => {
     try {
         const title = req.body.title
         let activity = await Activity.findOne({title});
@@ -81,7 +82,7 @@ const create = async(req, res, next) => {
     
 };
 
-const update = async (req, res, next) => {
+const updateActivity = async (req, res, next) => {
     try {
         // console.log("req:",req)
         console.log("req.body:",req.body)
@@ -115,8 +116,24 @@ const update = async (req, res, next) => {
     }
 };
 
+const deleteActivity = async (req, res) => {
+    console.log(req.params.id);
+    try {
+        const deletedActivity = await Activity.findByIdAndDelete(req.params.id);
+    
+        if (!deletedActivity) {
+          return res.status(404).json({ error: "Activity not found" });
+        }
+    
+        res.json(deletedActivity);
+      } catch (error) {
+        res.status(500).json({ error: "Internal Server Error" });
+      }
+};
+
 module.exports = {
-    create,
+    createActivity,
     getActivity,
-    update,
+    updateActivity,
+    deleteActivity,
 };

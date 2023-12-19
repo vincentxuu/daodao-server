@@ -1,12 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const { create,update ,getActivity} = require("../controller/activity");
+const { createActivity,updateActivity ,getActivity,deleteActivity} = require("../controller/activity");
 
 router.get("/", getActivity);
 
+router.get("/:id", getActivity);
 router.get("/:userId", getActivity);
 
-router.post("/create", create);
-router.post("/update", update);
+router.post("/create", createActivity);
+router.post("/update", updateActivity);
+router.delete("/delete/:id", deleteActivity);
 
 module.exports = router;
