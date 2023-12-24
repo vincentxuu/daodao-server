@@ -24,7 +24,8 @@ const getPartner = async (req, res, next) => {
         }
 
         if (tag) {
-            filter.tag = tag;
+            tag =  tag.split(',');
+            filter.tag = { $in: tag };
         }
         if (search) {
             let searchQuery = { 
