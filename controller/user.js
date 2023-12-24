@@ -1,24 +1,44 @@
 const User = require("../models/user.model")
 const getPartner = async (req, res, next) => {
     try {
-        const { query: { page, pageSize, educationStage, location, tag } } = req;
+        let { query: { page, pageSize, educationStage,roleList, location, tag, search } } = req;
         const _id = req.params.id;
 
-        const filter = {};
+        let filter = {};
         if( _id) {
-                filter._id = _id;
+            filter._id = _id;
         }
 
         if (educationStage) {
-            filter.educationStage = educationStage;
+            educationStage = educationStage.split(',');
+            filter.educationStage = { $in: educationStage };
+        }
+        if (roleList) {
+            roleList =  roleList.split(',');
+            filter.roleList = { $in: roleList };
         }
 
         if (location) {
-            filter.location = location;
+            location = location.split(',');
+            filter.location = { $in: location };
         }
 
         if (tag) {
             filter.tag = tag;
+        }
+        if (search) {
+            let searchQuery = { 
+                $or: [
+                  { name: new RegExp(search, 'i') },
+                  { selfIntroduction: new RegExp(search, 'i') },
+                  { share: new RegExp(search, 'i') },
+                  { roleList: new RegExp(search, 'i') },
+                  { interestList: new RegExp(search, 'i') },
+                  { tagList: new RegExp(search, 'i') },
+                ]
+              };
+            filter = searchQuery;
+            console.log(filter);
         }
         
 
