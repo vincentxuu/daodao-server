@@ -19,7 +19,14 @@ const app = express();
 app.use(express.json());
 app.use(
     cors({
-      origin: [process.env.FRONTEND_URL,'https://daodao-f2e-daodaoedu.vercel.app','https://daodao-f2e-pi.vercel.app','http://localhost:5000'],
+      origin: [
+        process.env.FRONTEND_URL,
+        'https://daodao-f2e-daodaoedu.vercel.app',
+        'https://daodao-f2e-pi.vercel.app',
+        'http://localhost:5000',
+        'https://dev.daodao-notion-test.pages.dev',
+        'https://www.daoedu.tw',
+    ],
       methods: "GET,POST,PUT,DELETE",
       credentials: true,
     })
