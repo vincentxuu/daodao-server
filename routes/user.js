@@ -21,7 +21,7 @@ router.get("/", getPartner);
 
 router.get("/:id", getPartner);
 
-router.post("/update", update);
+router.put("/:id", update);
 
 router.get("/logout", (req, res) => {
     req.logout();

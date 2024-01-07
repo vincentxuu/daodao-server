@@ -25,7 +25,11 @@ const userSchema = new mongoose.Schema({
     minLength: 3,
     maxLength: 20,
   },
-  date: {//更新時間
+  createdDate: {//建立時間
+    type: Date,
+    default: Date.now,
+  },
+  updatedDate: {//更新時間
     type: Date,
     default: Date.now,
   },

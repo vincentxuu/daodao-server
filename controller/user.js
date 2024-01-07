@@ -77,8 +77,8 @@ const update = async (req, res, next) => {
     try {
         // console.log("req:",req)
         console.log("req.body:",req.body)
-        const  email  = req.body.email
-        let user = await User.findOne({email});
+        const _id = req.params.id;
+        let user = await User.findOne({_id});
         console.log("user:",user)
 
         if (!user) {
@@ -103,29 +103,11 @@ const update = async (req, res, next) => {
         user.share = req.body.share || user.share;
         user.tagList = req.body.tagList || user.tagList;
         user.wantToDoList = req.body.wantToDoList || user.wantToDoList;
+        user.updatedDate = Date.now();
 
         const updatedUserProfile = await user.save();
         console.log("updatedUserProfile:",updatedUserProfile)
-        res.json({
-            _id: updatedUserProfile._id,
-            birthDay: updatedUserProfile.birthDay,
-            contactInformationList: updatedUserProfile.contactInformationList,
-            educationStage: updatedUserProfile.educationStage,
-            email: updatedUserProfile.email,
-            gender: updatedUserProfile.gender,
-            name: updatedUserProfile.name,
-            photoURL: updatedUserProfile.photoURL,
-            interestList: updatedUserProfile.interestList,
-            isOpenLocation: updatedUserProfile.isOpenLocation,
-            isOpenProfile: updatedUserProfile.isOpenProfile,
-            isSubscribeEmail: updatedUserProfile.isSubscribeEmail,
-            location: updatedUserProfile.location,
-            roleList: updatedUserProfile.roleList,
-            selfIntroduction: updatedUserProfile.selfIntroduction,
-            share: updatedUserProfile.share,
-            tagList: updatedUserProfile.tagList,
-            wantToDoList: updatedUserProfile.wantToDoList,
-        });
+        res.json({data:updatedUserProfile});
     } catch (error) {
         next(error);
     }
