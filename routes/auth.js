@@ -14,7 +14,7 @@ router.get("/google",
 
 router.get("/google/callback", passport.authenticate("google"), async(req, res) => {
     console.log("google/callback_req.session", req);
-    return res.redirect(`${'https://www.daoedu.tw'||'https://daodao-f2e-pi.vercel.app'||'https://daodao-f2e-daodaoedu.vercel.app'|| 'http://localhost:5000'||'https://dev.daodao-notion-test.pages.dev'}?id=${req.user._id}`);
+    return res.redirect(`${'http://localhost:5000'||'https://dev.daodao-notion-test.pages.dev'||'https://www.daoedu.tw'}?id=${req.user._id}`);
 });
 
 
