@@ -67,7 +67,7 @@ const htmlContent = `
                               <table cellpadding="0" cellspacing="0" border="0" role="presentation" width="100.00%" style="width: 100%; border-spacing: 0">
                                 <tr>
                                   <td align="left" style="padding-bottom: 8.5px; padding-left: 55px">
-                                    <p style="font-size: 18px; font-weight: 700; color: #536166; margin: 0; padding: 0; line-height: 18px; mso-line-height-rule: exactly">有新夥伴想認識你！</p>
+                                    <p style="font-size: 18px; font-weight: 700; color: #536166; margin: 0; padding: 0; line-height: 18px; mso-line-height-rule: exactly">${req.body.title}</p>
                                   </td>
                                 </tr>
                                 <tr>
@@ -84,18 +84,18 @@ const htmlContent = `
                                                       <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-spacing: 0">
                                                         <tr>
                                                           <td valign="top" style="padding-right: 4px">
-                                                            <img src="assets/img_2838_6802_833ba7.png" width="40" style="border: none; border-radius: 50%; max-width: initial; width: 40px; display: block" />
+                                                            <img src=${req.body.photoUrl} width="40" style="border: none; border-radius: 50%; max-width: initial; width: 40px; display: block" />
                                                           </td>
                                                           <td valign="top" style="padding-top: 4px; padding-bottom: 2px; padding-left: 8px">
                                                             <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-spacing: 0">
                                                               <tr>
                                                                 <td style="padding-bottom: 3.5px">
-                                                                  <p style="font-size: 14px; font-weight: 500; color: #293a3d; margin: 0; padding: 0; line-height: 14px; mso-line-height-rule: exactly">黃芊宇</p>
+                                                                  <p style="font-size: 14px; font-weight: 500; color: #293a3d; margin: 0; padding: 0; line-height: 14px; mso-line-height-rule: exactly">${req.body.name}</p>
                                                                 </td>
                                                               </tr>
                                                               <tr>
                                                                 <td style="padding-top: 3.5px">
-                                                                  <p style="font-size: 12px; font-weight: 500; color: #536166; margin: 0; padding: 0; line-height: 13px; mso-line-height-rule: exactly">實驗教育學生</p>
+                                                                  <p style="font-size: 12px; font-weight: 500; color: #536166; margin: 0; padding: 0; line-height: 13px; mso-line-height-rule: exactly">${req.body.roleList[0]}</p>
                                                                 </td>
                                                               </tr>
                                                             </table>
@@ -110,7 +110,7 @@ const htmlContent = `
                                             <tr>
                                               <td style="padding-top: 10px">
                                                 <!--[if mso]> <table role="presentation" border="0" cellspacing="0" cellpadding="0" align="center" width="272px" height="144px" style=" width:272px; height:144px;"> <tr> <td> <![endif]-->
-                                                <p width="272" height="144" style="font-size: 14px; font-weight: 400; text-align: left; line-height: 140%; color: #536166; mso-line-height-rule: exactly; margin: 0; padding: 0; width: 272px; height: 144px">哈囉，我是高二的自學生，最近剛開始學習人類學，很希望可以找人一起開讀書會討論書籍，詳細的方式可以一起討論，不知道你有沒有興趣呢？<br />自學的路上一直覺得寂寞寂寞的，不知道你自學多久了呢，希望有機會可以認識你跟你聊聊～～</p>
+                                                <p width="272" height="144" style="font-size: 14px; font-weight: 400; text-align: left; line-height: 140%; color: #536166; mso-line-height-rule: exactly; margin: 0; padding: 0; width: 272px; height: 144px">${req.body.text}</p>
                                                 <!--[if mso]></td></tr></table><![endif]-->
                                               </td>
                                             </tr>
@@ -144,7 +144,7 @@ const htmlContent = `
                                 <tr>
                                   <td style="padding-top: 4.5px">
                                     <!--[if mso]> <table role="presentation" border="0" cellspacing="0" cellpadding="0" align="center" width="272px" height="60px" style=" width:272px; height:60px;"> <tr> <td> <![endif]-->
-                                    <p width="272" height="60" style="font-size: 14px; font-weight: 400; text-align: left; line-height: 140%; color: #536166; mso-line-height-rule: exactly; margin: 0; padding: 0; width: 272px; height: 60px">sing930828@gmail.com<br />Line ID : sing930<br />IG : sing_930828</p>
+                                    <p width="272" height="60" style="font-size: 14px; font-weight: 400; text-align: left; line-height: 140%; color: #536166; mso-line-height-rule: exactly; margin: 0; padding: 0; width: 272px; height: 60px">${req.body.information[0]}<br />${req.body.information[1]}<br />${req.body.information[2]}</p>
                                     <!--[if mso]></td></tr></table><![endif]-->
                                   </td>
                                 </tr>
