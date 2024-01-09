@@ -4,8 +4,8 @@ const userSchema = new mongoose.Schema({
   birthDay: {//生日
     type: String,
   },
-  contactInformationList: {
-    type: Array,
+  contactList: {
+    type: Object,
   },
   educationStage: {
     type: String,
