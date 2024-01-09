@@ -37,7 +37,11 @@ const activitySchema = new mongoose.Schema({
   isGrouping: {
     type: Boolean,
   },
-  date: {
+  createdDate: {//建立時間
+    type: Date,
+    default: Date.now,
+  },
+  updatedDate: {//更新時間
     type: Date,
     default: Date.now,
   },

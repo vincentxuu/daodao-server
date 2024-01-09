@@ -86,8 +86,8 @@ const updateActivity = async (req, res, next) => {
     try {
         // console.log("req:",req)
         console.log("req.body:",req.body)
-        const userId  = req.body.userId
-        let activity = await Activity.findOne({userId});
+        const _id = req.params.id;
+        let activity = await Activity.findOne({_id});
         console.log("activity:",activity)
 
         if (!activity) {
@@ -104,6 +104,8 @@ const updateActivity = async (req, res, next) => {
         activity.description = req.body.description || activity.description;
         activity.tagList = req.body.tagList || activity.tagList;
         activity.isGrouping = req.body.isGrouping || activity.isGrouping;
+        activity.updatedDate = Date.now();
+
 
         const data = await activity.save();
         console.log("updatedActivity:",data)

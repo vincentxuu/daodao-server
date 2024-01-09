@@ -84,6 +84,7 @@ const update = async (req, res, next) => {
         if (!user) {
             throw new Error("User not found");
         }
+        
 
         user.birthDay = req.body.birthDay || user.birthDay;
         user.contactInformationList = req.body.contactInformationList || user.contactInformationList;
