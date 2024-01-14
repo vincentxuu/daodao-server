@@ -94,10 +94,10 @@ const update = async (req, res, next) => {
         user.googleID = req.body.googleID || user.googleID;
         user.name = req.body.name || user.name;
         user.photoURL = req.body.photoURL || user.photoURL;
-        user.interestList = req.body.interestList || user.interestList;
-        user.isOpenLocation = req.body.isOpenLocation || user.isOpenLocation;
-        user.isOpenProfile = req.body.isOpenProfile || user.isOpenProfile;
-        user.isSubscribeEmail = req.body.isSubscribeEmail || user.isSubscribeEmail;
+        user.interestList = req.body.interestList ?? user.interestList;
+        user.isOpenLocation = req.body.isOpenLocation ?? user.isOpenLocation;
+        user.isOpenProfile = req.body.isOpenProfile ?? user.isOpenProfile;
+        user.isSubscribeEmail = req.body.isSubscribeEmail ?? user.isSubscribeEmail;
         user.location = req.body.location || user.location;
         user.roleList = req.body.roleList || user.roleList;
         user.selfIntroduction = req.body.selfIntroduction || user.selfIntroduction;
