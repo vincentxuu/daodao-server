@@ -144,7 +144,7 @@ const htmlContent = `
                                 <tr>
                                   <td style="padding-top: 4.5px">
                                     <!--[if mso]> <table role="presentation" border="0" cellspacing="0" cellpadding="0" align="center" width="272px" height="60px" style=" width:272px; height:60px;"> <tr> <td> <![endif]-->
-                                    <p width="272" height="60" style="font-size: 14px; font-weight: 400; text-align: left; line-height: 140%; color: #536166; mso-line-height-rule: exactly; margin: 0; padding: 0; width: 272px; height: 60px">${req.body.information[0]}<br />${req.body.information[1]}<br />${req.body.information[2]}</p>
+                                    <p width="272" height="60" style="font-size: 14px; font-weight: 400; text-align: left; line-height: 140%; color: #536166; mso-line-height-rule: exactly; margin: 0; padding: 0; width: 272px; height: 60px">${req.body.information[0]??''}<br />${req.body.information[1]??''}<br />${req.body.information[2]??''}<br />${req.body.information[3]??''}</p>
                                     <!--[if mso]></td></tr></table><![endif]-->
                                   </td>
                                 </tr>
