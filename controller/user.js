@@ -87,7 +87,7 @@ const update = async (req, res, next) => {
         
 
         user.birthDay = req.body.birthDay || user.birthDay;
-        user.contactInformationList = req.body.contactInformationList || user.contactInformationList;
+        user.contactList = req.body.contactList || user.contactList;
         user.educationStage = req.body.educationStage || user.educationStage;
         user.email = req.body.email || user.email;
         user.gender = req.body.gender || user.gender;
