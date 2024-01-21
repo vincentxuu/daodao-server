@@ -1,0 +1,781 @@
+[2024-01-13T16:51:19.298] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-13T16:53:03.942] [INFO] app - Create Activity API - New activity created: {
+  userId: '649c79e59b08fe6307349183',
+  title: 'logger',
+  photoURL: 'https://example.com/photo.jpg',
+  photoAlt: '照片描述',
+  category: [ '類別2', '類別4' ],
+  area: '活動地區',
+  time: '1214',
+  partnerStyle: '合作夥伴風格',
+  partnerEducationStep: '合作夥伴教育階段',
+  description: '活動描述',
+  tagList: [ '標籤1', '標籤2' ],
+  isGrouping: true
+}
+[2024-01-13T17:15:07.596] [ERROR] app - Delete Activity API - Error: CastError: Cast to ObjectId failed for value "649c79e59b08fe630734918" (type string) at path "_id" for model "Activity"
+    at ObjectId.cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schema/objectid.js:248:11)
+    at SchemaType.applySetters (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schematype.js:1204:12)
+    at SchemaType.castForQuery (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schematype.js:1616:15)
+    at cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/cast.js:348:32)
+    at Query.cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:4874:12)
+    at Query._castConditions (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:2210:10)
+    at model.Query._findOneAndDelete (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:3480:8)
+    at model.Query.exec (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:4404:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async deleteActivity (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/controller/activity.js:100:33) {
+  stringValue: '"649c79e59b08fe630734918"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: '649c79e59b08fe630734918',
+  path: '_id',
+  reason: BSONError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new ObjectId (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/bson/lib/bson.cjs:2006:23)
+      at castObjectId (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/cast/objectid.js:25:12)
+      at ObjectId.cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schema/objectid.js:246:12)
+      at SchemaType.applySetters (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schematype.js:1204:12)
+      at SchemaType.castForQuery (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schematype.js:1616:15)
+      at cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/cast.js:348:32)
+      at Query.cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:4874:12)
+      at Query._castConditions (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:2210:10)
+      at model.Query._findOneAndDelete (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:3480:8)
+      at model.Query.exec (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:4404:28),
+  valueType: 'string',
+  model: Model { Activity }
+}
+[2024-01-13T17:28:07.138] [ERROR] app - Update Activity API - Error: CastError: Cast to ObjectId failed for value "659ac934a585f900b1b0a41" (type string) at path "_id" for model "Activity"
+    at ObjectId.cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schema/objectid.js:248:11)
+    at SchemaType.applySetters (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schematype.js:1204:12)
+    at SchemaType.castForQuery (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schematype.js:1616:15)
+    at cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/cast.js:348:32)
+    at Query.cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:4874:12)
+    at Query._castConditions (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:2210:10)
+    at model.Query._findOneAndUpdate (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:3284:8)
+    at model.Query.exec (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:4404:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async updateActivity (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/controller/activity.js:82:33) {
+  stringValue: '"659ac934a585f900b1b0a41"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: '659ac934a585f900b1b0a41',
+  path: '_id',
+  reason: BSONError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new ObjectId (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/bson/lib/bson.cjs:2006:23)
+      at castObjectId (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/cast/objectid.js:25:12)
+      at ObjectId.cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schema/objectid.js:246:12)
+      at SchemaType.applySetters (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schematype.js:1204:12)
+      at SchemaType.castForQuery (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schematype.js:1616:15)
+      at cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/cast.js:348:32)
+      at Query.cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:4874:12)
+      at Query._castConditions (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:2210:10)
+      at model.Query._findOneAndUpdate (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:3284:8)
+      at model.Query.exec (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:4404:28),
+  valueType: 'string',
+  model: Model { Activity }
+}
+[2024-01-13T17:30:19.916] [ERROR] app - Update Activity API - Error: CastError: Cast to ObjectId failed for value "659ac934a585f900b1b0a41" (type string) at path "_id" for model "Activity"
+    at ObjectId.cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schema/objectid.js:248:11)
+    at SchemaType.applySetters (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schematype.js:1204:12)
+    at SchemaType.castForQuery (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schematype.js:1616:15)
+    at cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/cast.js:348:32)
+    at Query.cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:4874:12)
+    at Query._castConditions (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:2210:10)
+    at model.Query._findOneAndUpdate (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:3284:8)
+    at model.Query.exec (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:4404:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async updateActivity (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/controller/activity.js:82:33) {
+  stringValue: '"659ac934a585f900b1b0a41"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: '659ac934a585f900b1b0a41',
+  path: '_id',
+  reason: BSONError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new ObjectId (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/bson/lib/bson.cjs:2006:23)
+      at castObjectId (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/cast/objectid.js:25:12)
+      at ObjectId.cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schema/objectid.js:246:12)
+      at SchemaType.applySetters (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schematype.js:1204:12)
+      at SchemaType.castForQuery (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schematype.js:1616:15)
+      at cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/cast.js:348:32)
+      at Query.cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:4874:12)
+      at Query._castConditions (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:2210:10)
+      at model.Query._findOneAndUpdate (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:3284:8)
+      at model.Query.exec (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:4404:28),
+  valueType: 'string',
+  model: Model { Activity }
+}
+[2024-01-21T19:41:46.913] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:14:52.641] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:14:52.895] [ERROR] app - Activity API - Error: ReferenceError: User is not defined
+    at getActivity (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/controller/activity.js:49:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-01-21T22:14:58.501] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:14:58.778] [ERROR] app - Activity API - Error: ReferenceError: User is not defined
+    at getActivity (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/controller/activity.js:49:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-01-21T22:15:55.342] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:15:55.747] [ERROR] app - Activity API - Error: TypeError: Cannot read properties of undefined (reading 'photoUrl')
+    at /Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/controller/activity.js:58:36
+    at Array.map (<anonymous>)
+    at getActivity (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/controller/activity.js:53:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-01-21T22:17:01.898] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:17:02.369] [ERROR] app - Activity API - Error: TypeError: Cannot read properties of undefined (reading 'photoURL')
+    at /Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/controller/activity.js:58:36
+    at Array.map (<anonymous>)
+    at getActivity (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/controller/activity.js:53:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-01-21T22:18:03.881] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:18:04.307] [ERROR] app - Activity API - Error: TypeError: Cannot read properties of undefined (reading 'photoURL')
+    at /Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/controller/activity.js:59:36
+    at Array.map (<anonymous>)
+    at getActivity (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/controller/activity.js:54:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-01-21T22:18:57.115] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:18:57.562] [ERROR] app - Activity API - Error: TypeError: Cannot read properties of undefined (reading 'photoURL')
+    at /Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/controller/activity.js:60:36
+    at Array.map (<anonymous>)
+    at getActivity (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/controller/activity.js:55:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-01-21T22:19:41.496] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:19:41.869] [ERROR] app - Activity API - Error: TypeError: Cannot read properties of undefined (reading 'name')
+    at /Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/controller/activity.js:61:32
+    at Array.map (<anonymous>)
+    at getActivity (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/controller/activity.js:55:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-01-21T22:25:13.493] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: '649c79e59b08fe630734918',
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:25:13.495] [ERROR] app - Activity API - Error: CastError: Cast to ObjectId failed for value "649c79e59b08fe630734918" (type string) at path "_id" for model "Activity"
+    at ObjectId.cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schema/objectid.js:248:11)
+    at SchemaType.applySetters (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schematype.js:1204:12)
+    at SchemaType.castForQuery (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schematype.js:1616:15)
+    at cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/cast.js:348:32)
+    at Query.cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:4874:12)
+    at model.Query._countDocuments (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:2626:10)
+    at model.Query.exec (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:4404:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async getActivity (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/controller/activity.js:40:28) {
+  stringValue: '"649c79e59b08fe630734918"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: '649c79e59b08fe630734918',
+  path: '_id',
+  reason: BSONError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new ObjectId (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/bson/lib/bson.cjs:2006:23)
+      at castObjectId (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/cast/objectid.js:25:12)
+      at ObjectId.cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schema/objectid.js:246:12)
+      at SchemaType.applySetters (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schematype.js:1204:12)
+      at SchemaType.castForQuery (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schematype.js:1616:15)
+      at cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/cast.js:348:32)
+      at Query.cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:4874:12)
+      at model.Query._countDocuments (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:2626:10)
+      at model.Query.exec (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:4404:28)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5),
+  valueType: 'string',
+  model: Model { Activity }
+}
+[2024-01-21T22:25:31.370] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: '64a2e2b5c112a8aea8d6dc4e',
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:27:06.620] [INFO] app - Create Activity API - Activity already exists: { title: 'logger' }
+[2024-01-21T22:27:19.394] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: '649c79e59b08fe6307349183',
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:27:54.652] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:27:55.002] [ERROR] app - Activity API - Error: TypeError: Cannot read properties of undefined (reading 'name')
+    at /Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/controller/activity.js:61:32
+    at Array.map (<anonymous>)
+    at getActivity (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/controller/activity.js:55:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-01-21T22:28:06.648] [INFO] app - Activity API - Request received: {
+  userId: '649c79e59b08fe6307349183',
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:28:07.032] [ERROR] app - Activity API - Error: TypeError: Cannot read properties of undefined (reading 'name')
+    at /Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/controller/activity.js:61:32
+    at Array.map (<anonymous>)
+    at getActivity (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/controller/activity.js:55:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-01-21T22:35:10.359] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:35:10.847] [ERROR] app - Activity API - Error: TypeError: Cannot read properties of undefined (reading 'name')
+    at /Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/controller/activity.js:61:32
+    at Array.map (<anonymous>)
+    at getActivity (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/controller/activity.js:55:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-01-21T22:37:24.587] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:40:54.867] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:43:23.667] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:45:32.948] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:47:13.563] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:47:13.952] [ERROR] app - Activity API - Error: TypeError: Cannot read properties of undefined (reading 'photoURL')
+    at /Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/controller/activity.js:63:40
+    at Array.map (<anonymous>)
+    at getActivity (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/controller/activity.js:57:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-01-21T22:47:38.613] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:49:07.306] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:50:54.615] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:52:40.101] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:53:38.863] [ERROR] app - Delete Activity API - Error: CastError: Cast to ObjectId failed for value "649c79e59b08fe630734918" (type string) at path "_id" for model "Activity"
+    at ObjectId.cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schema/objectid.js:248:11)
+    at SchemaType.applySetters (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schematype.js:1204:12)
+    at SchemaType.castForQuery (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schematype.js:1616:15)
+    at cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/cast.js:348:32)
+    at Query.cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:4874:12)
+    at Query._castConditions (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:2210:10)
+    at model.Query._findOneAndDelete (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:3480:8)
+    at model.Query.exec (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:4404:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async deleteActivity (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/controller/activity.js:133:33) {
+  stringValue: '"649c79e59b08fe630734918"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: '649c79e59b08fe630734918',
+  path: '_id',
+  reason: BSONError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new ObjectId (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/bson/lib/bson.cjs:2006:23)
+      at castObjectId (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/cast/objectid.js:25:12)
+      at ObjectId.cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schema/objectid.js:246:12)
+      at SchemaType.applySetters (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schematype.js:1204:12)
+      at SchemaType.castForQuery (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/schematype.js:1616:15)
+      at cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/cast.js:348:32)
+      at Query.cast (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:4874:12)
+      at Query._castConditions (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:2210:10)
+      at model.Query._findOneAndDelete (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:3480:8)
+      at model.Query.exec (/Users/xiaoxu/Projects/島島/daodao-partner/daodao-server/node_modules/mongoose/lib/query.js:4404:28),
+  valueType: 'string',
+  model: Model { Activity }
+}
+[2024-01-21T22:54:02.500] [INFO] app - Delete Activity API - Activity deleted: {
+  _id: new ObjectId("65a24f6f7023b3aef43b0901"),
+  userId: '649c79e59b08fe6307349183',
+  title: 'logger',
+  photoURL: 'https://example.com/photo.jpg',
+  photoAlt: '照片描述',
+  category: [ '類別2', '類別4' ],
+  area: '活動地區',
+  time: 'Wed Jan 01 1214 08:06:00 GMT+0806 (Taipei Standard Time)',
+  partnerStyle: '合作夥伴風格',
+  partnerEducationStep: '合作夥伴教育階段',
+  description: '活動描述',
+  tagList: [ '標籤1', '標籤2' ],
+  isGrouping: true,
+  createdDate: 2024-01-13T08:53:03.951Z,
+  updatedDate: 2024-01-13T08:53:03.951Z,
+  __v: 0
+}
+[2024-01-21T22:54:17.337] [INFO] app - Delete Activity API - Activity deleted: {
+  _id: new ObjectId("659d5d4787ae8c6e097ba40e"),
+  userId: '649c79e59b08fe6307349183',
+  title: 'GGG',
+  photoURL: 'https://example.com/photo.jpg',
+  photoAlt: '照片描述',
+  category: [ '類別2', '類別4' ],
+  area: '活動地區',
+  time: 'Wed Jan 01 1214 08:06:00 GMT+0806 (Taipei Standard Time)',
+  partnerStyle: '合作夥伴風格',
+  partnerEducationStep: '合作夥伴教育階段',
+  description: '活動描述',
+  tagList: [ '標籤1', '標籤2' ],
+  isGrouping: true,
+  createdDate: 2024-01-09T14:50:47.106Z,
+  updatedDate: 2024-01-09T14:50:47.106Z,
+  __v: 0
+}
+[2024-01-21T22:54:28.427] [INFO] app - Delete Activity API - Activity deleted: {
+  _id: new ObjectId("659ad60abdbd130f30a740cc"),
+  userId: '64a2e2b5c112a8aea8d6dc4e',
+  title: 'NEW TTT',
+  photoURL: 'https://example.com/photo.jpg',
+  photoAlt: '照片描述',
+  category: [ '類別2', '類別4' ],
+  area: '活動地區',
+  time: 'Wed Jan 01 1214 08:06:00 GMT+0806 (Taipei Standard Time)',
+  partnerStyle: '合作夥伴風格',
+  partnerEducationStep: '合作夥伴教育階段',
+  description: '活動描述',
+  tagList: [ '標籤1', '標籤2' ],
+  isGrouping: true,
+  createdDate: 2024-01-07T16:49:14.847Z,
+  updatedDate: 2024-01-07T16:49:14.847Z,
+  __v: 0
+}
+[2024-01-21T22:54:32.976] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:54:44.090] [INFO] app - Delete Activity API - Activity deleted: {
+  _id: new ObjectId("659aceb65d2da139a8f99eb1"),
+  userId: '64a2e2b5c112a8aea8d6dc4e',
+  title: 'NEW TEST',
+  photoURL: 'https://example.com/photo.jpg',
+  photoAlt: '照片描述',
+  category: [ '類別2', '類別4' ],
+  area: '活動地區',
+  time: 'Wed Jan 01 1214 08:06:00 GMT+0806 (Taipei Standard Time)',
+  partnerStyle: '合作夥伴風格',
+  partnerEducationStep: '合作夥伴教育階段',
+  description: '活動描述',
+  tagList: [ '標籤1', '標籤2' ],
+  isGrouping: true,
+  createdDate: 2024-01-07T16:17:58.033Z,
+  updatedDate: 2024-01-07T16:18:33.120Z,
+  __v: 0
+}
+[2024-01-21T22:54:47.369] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:54:56.517] [INFO] app - Delete Activity API - Activity deleted: {
+  _id: new ObjectId("659acc00cc02f1d109dbefc3"),
+  userId: '64a2e2b5c112a8aea8d6dc4e',
+  title: '新的',
+  photoURL: 'https://example.com/photo.jpg',
+  photoAlt: '照片描述',
+  category: [ '類別2', '類別4' ],
+  area: '活動地區',
+  time: 'Wed Jan 01 1214 08:06:00 GMT+0806 (Taipei Standard Time)',
+  partnerStyle: '合作夥伴風格',
+  partnerEducationStep: '合作夥伴教育階段',
+  description: '活動描述',
+  tagList: [ '標籤1', '標籤2' ],
+  isGrouping: true,
+  createdDate: 2024-01-07T16:06:24.616Z,
+  updatedDate: 2024-01-07T16:06:24.622Z,
+  __v: 0
+}
+[2024-01-21T22:55:01.301] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:57:04.586] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T22:58:18.450] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T23:00:26.694] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T23:04:24.977] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T23:05:27.089] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T23:08:03.403] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T23:09:14.734] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T23:09:49.639] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T23:11:16.723] [INFO] app - Delete Activity API - Activity deleted: null
+[2024-01-21T23:11:34.408] [INFO] app - Delete Activity API - Activity deleted: {
+  _id: new ObjectId("659ac934a585f900b1b0a41d"),
+  userId: '64a2e2b5c112a8aea8d6dc4e',
+  title: 'NNNNN',
+  photoURL: 'https://example.com/photo.jpg',
+  photoAlt: '照片描述',
+  category: [ '類別2', '類別4' ],
+  area: '活動地區',
+  time: 'Wed Jan 01 1214 08:06:00 GMT+0806 (Taipei Standard Time)',
+  partnerStyle: '合作夥伴風格',
+  partnerEducationStep: '合作夥伴教育階段',
+  description: '活動描述',
+  tagList: [ '標籤1', '標籤2' ],
+  isGrouping: true,
+  createdDate: 2024-01-07T15:54:28.417Z,
+  updatedDate: 2024-01-07T16:52:07.382Z,
+  __v: 0
+}
+[2024-01-21T23:11:46.052] [INFO] app - Delete Activity API - Activity deleted: {
+  _id: new ObjectId("659aca5d2dee7c7764aebf61"),
+  userId: '64a2e2b5c112a8aea8d6dc4e',
+  title: '這是測試',
+  photoURL: 'https://example.com/photo.jpg',
+  photoAlt: '照片描述',
+  category: [ '類別2', '類別4' ],
+  area: '活動地區',
+  time: 'Wed Jan 01 1214 08:06:00 GMT+0806 (Taipei Standard Time)',
+  partnerStyle: '合作夥伴風格',
+  partnerEducationStep: '合作夥伴教育階段',
+  description: '活動描述',
+  tagList: [ '標籤1', '標籤2' ],
+  isGrouping: true,
+  createdDate: 2024-01-07T15:59:25.086Z,
+  updatedDate: 2024-01-07T15:59:25.086Z,
+  __v: 0
+}
+[2024-01-21T23:11:53.765] [INFO] app - Delete Activity API - Activity deleted: {
+  _id: new ObjectId("659acb643452a2826085de4a"),
+  userId: '64a2e2b5c112a8aea8d6dc4e',
+  title: '測試',
+  photoURL: 'https://example.com/photo.jpg',
+  photoAlt: '照片描述',
+  category: [ '類別2', '類別4' ],
+  area: '活動地區',
+  time: 'Wed Jan 01 1214 08:06:00 GMT+0806 (Taipei Standard Time)',
+  partnerStyle: '合作夥伴風格',
+  partnerEducationStep: '合作夥伴教育階段',
+  description: '活動描述',
+  tagList: [ '標籤1', '標籤2' ],
+  isGrouping: true,
+  createdDate: 2024-01-07T16:03:48.719Z,
+  updatedDate: 2024-01-07T16:03:48.724Z,
+  __v: 0
+}
+[2024-01-21T23:12:03.868] [INFO] app - Delete Activity API - Activity deleted: {
+  _id: new ObjectId("659acbac8846c16f85186aad"),
+  userId: '64a2e2b5c112a8aea8d6dc4e',
+  title: '新的測試',
+  photoURL: 'https://example.com/photo.jpg',
+  photoAlt: '照片描述',
+  category: [ '類別2', '類別4' ],
+  area: '活動地區',
+  time: 'Wed Jan 01 1214 08:06:00 GMT+0806 (Taipei Standard Time)',
+  partnerStyle: '合作夥伴風格',
+  partnerEducationStep: '合作夥伴教育階段',
+  description: '活動描述',
+  tagList: [ '標籤1', '標籤2' ],
+  isGrouping: true,
+  updatedDate: 2024-01-07T16:05:00.665Z,
+  __v: 0,
+  createdDate: 2024-01-21T15:12:03.868Z
+}
+[2024-01-21T23:12:07.179] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T23:12:31.231] [INFO] app - Create Activity API - New activity created: {
+  userId: '649c79e59b08fe6307349183',
+  title: 'logger',
+  photoURL: 'https://example.com/photo.jpg',
+  photoAlt: '照片描述',
+  category: [ '類別2', '類別4' ],
+  area: '活動地區',
+  time: '1214',
+  partnerStyle: '合作夥伴風格',
+  partnerEducationStep: '合作夥伴教育階段',
+  description: '活動描述',
+  tagList: [ '標籤1', '標籤2' ],
+  isGrouping: true
+}
+[2024-01-21T23:12:48.299] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T23:14:01.774] [INFO] app - Create Activity API - New activity created: {
+  userId: '64a159dc6e10b7d5550e6c92',
+  title: 'hk4hk4',
+  photoURL: 'https://example.com/photo.jpg',
+  photoAlt: '照片描述',
+  category: [ '類別2', '類別4' ],
+  area: '活動地區',
+  time: '1214',
+  partnerStyle: '合作夥伴風格',
+  partnerEducationStep: '合作夥伴教育階段',
+  description: '活動描述',
+  tagList: [ '標籤1', '標籤2' ],
+  isGrouping: true
+}
+[2024-01-21T23:14:07.487] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T23:15:57.616] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T23:16:48.239] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T23:18:47.190] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T23:19:20.479] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T23:23:08.767] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T23:27:58.023] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
+[2024-01-21T23:28:10.417] [INFO] app - Create Activity API - New activity created: {
+  userId: '64a159dc6e10b7d5550e6c92',
+  title: 'aaaaa',
+  photoURL: 'https://example.com/photo.jpg',
+  photoAlt: '照片描述',
+  category: [ '類別2', '類別4' ],
+  area: '活動地區',
+  time: '1214',
+  partnerStyle: '合作夥伴風格',
+  partnerEducationStep: '合作夥伴教育階段',
+  description: '活動描述',
+  tagList: [ '標籤1', '標籤2' ],
+  isGrouping: true
+}
+[2024-01-21T23:28:29.931] [INFO] app - Create Activity API - Activity already exists: { title: 'aaaaa' }
+[2024-01-21T23:28:36.144] [INFO] app - Activity API - Request received: {
+  userId: undefined,
+  id: undefined,
+  area: undefined,
+  partnerEducationStep: undefined,
+  isGrouping: undefined,
+  category: undefined
+}
