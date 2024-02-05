@@ -17,7 +17,7 @@ const activitySchema = new mongoose.Schema({
     type: Array,
   },
   area: {
-    type: String,
+    type: Array,
   },
   time: {
     type: String,
@@ -26,7 +26,7 @@ const activitySchema = new mongoose.Schema({
     type: String,
   },
   partnerEducationStep: {
-    type: String,
+    type: Array,
   },
   description: {
     type: String,
