@@ -27,15 +27,15 @@ const getActivity = async (req, res) => {
             .skip((page - 1) * pageSize)
             .limit(pageSize);
 
-        const userIds = Array.from(new Set(activity.map(item => item.userId)));
+        const userIds = Array.from(new Set(activity?.map(item => item.userId)));
         console.log('userIds',userIds);
             
         const users = await User.find({ _id: { $in: userIds } });
         console.log('users',users);
 
             
-        const combinedData = activity.map(activityItem => {
-            const user = users.find(userItem => userItem._id.toString() === activityItem.userId.toString());
+        const combinedData = activity?.map(activityItem => {
+            const user = users?.find(userItem => userItem._id?.toString() === activityItem.userId?.toString());
             console.log('combinedData_users',users)
             if (user) {
                 return {
