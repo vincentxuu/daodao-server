@@ -43,6 +43,7 @@ const getActivity = async (req, res) => {
                     user: {
                         photoURL: user.photoURL,
                         name: user.name,
+                        email: user.email,
                         educationStage: user.educationStage,
                         location: user.location,
                         roleList: user.roleList,
