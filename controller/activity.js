@@ -118,9 +118,27 @@ const deleteActivity = async (req, res) => {
     }
 };
 
+const changeActivityStatus = async (req, res) => {
+    try {
+        const _id = req.params.id;
+        console.log("changeActivityStatus",req.body);
+        const changeActivityStatus = await Activity.findByIdAndUpdate(_id, req.body);
+        if (!changeActivityStatus) {
+            return res.status(404).json({ error: "Activity not found" });
+        }
+
+        res.json({
+            "success": true,
+        });
+    } catch (error) {
+        handleErrors(res, error);
+    }
+}
+
 module.exports = {
     createActivity,
     getActivity,
     updateActivity,
     deleteActivity,
+    changeActivityStatus
 };
