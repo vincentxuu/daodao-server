@@ -22,8 +22,6 @@ const userSchema = new mongoose.Schema({
   name: {//名稱
     type: String,
     required: true,
-    minLength: 3,
-    maxLength: 20,
   },
   createdDate: {//建立時間
     type: Date,
