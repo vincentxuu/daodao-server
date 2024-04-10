@@ -75,40 +75,47 @@ const getPartner = async (req, res, next) => {
 };
 const update = async (req, res, next) => {
     try {
-        // console.log("req:",req)
-        console.log("req.body:",req.body)
         const _id = req.params.id;
-        let user = await User.findOne({_id});
-        console.log("user:",user)
+        let user = await User.findOne({ _id });
 
         if (!user) {
             throw new Error("User not found");
         }
-        
 
-        user.birthDay = req.body.birthDay || user.birthDay;
-        user.contactList = req.body.contactList || user.contactList;
-        user.educationStage = req.body.educationStage || user.educationStage;
-        user.email = req.body.email || user.email;
-        user.gender = req.body.gender || user.gender;
-        user.googleID = req.body.googleID || user.googleID;
-        user.name = req.body.name || user.name;
-        user.photoURL = req.body.photoURL || user.photoURL;
-        user.interestList = req.body.interestList ?? user.interestList;
-        user.isOpenLocation = req.body.isOpenLocation ?? user.isOpenLocation;
-        user.isOpenProfile = req.body.isOpenProfile ?? user.isOpenProfile;
-        user.isSubscribeEmail = req.body.isSubscribeEmail ?? user.isSubscribeEmail;
-        user.location = req.body.location || user.location;
-        user.roleList = req.body.roleList || user.roleList;
-        user.selfIntroduction = req.body.selfIntroduction || user.selfIntroduction;
-        user.share = req.body.share || user.share;
-        user.tagList = req.body.tagList || user.tagList;
-        user.wantToDoList = req.body.wantToDoList || user.wantToDoList;
+        const fieldsToUpdate = [
+            'birthDay',
+            'contactList',
+            'educationStage',
+            'email',
+            'gender',
+            'googleID',
+            'name',
+            'photoURL',
+            'interestList',
+            'isOpenLocation',
+            'isOpenProfile',
+            'isSubscribeEmail',
+            'location',
+            'roleList',
+            'selfIntroduction',
+            'share',
+            'tagList',
+            'wantToDoList'
+        ];
+
+        fieldsToUpdate.forEach(field => {
+            if (req.body[field] !== undefined) {
+                user[field] = req.body[field];
+            }
+        });
+
         user.updatedDate = Date.now();
 
         const updatedUserProfile = await user.save();
-        console.log("updatedUserProfile:",updatedUserProfile)
-        res.json({data:updatedUserProfile});
+
+        console.log("updatedUserProfile:", updatedUserProfile);
+
+        res.json({ data: updatedUserProfile });
     } catch (error) {
         next(error);
     }

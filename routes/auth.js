@@ -3,8 +3,6 @@ const router = express.Router();
 const passport = require("passport");
 
 
-
-
 router.get("/google",
     passport.authenticate("google", {
         scope: ["profile", "email"],
@@ -14,7 +12,7 @@ router.get("/google",
 
 router.get("/google/callback", passport.authenticate("google"), async(req, res) => {
     console.log("google/callback_req.session", req);
-    return res.redirect(`${'https://dev.daodao-notion-test.pages.dev/signin'||'https://www.daoedu.tw'}?id=${req.user._id}`);
+    return res.redirect(`${process.env.FRONTEND_URL}?id=${req.user._id}`);
 });
 
 
