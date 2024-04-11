@@ -1,9 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const { profile, update ,getPartner,getAllUser} = require("../controller/user");
-const { isUserAuthenticated } = require("../middlewares/auth");
+const { update ,getPartner} = require("../controller/user");
 
-const CLIENT_URL = "https://daodao-f2e-pi.vercel.app";
+const CLIENT_URL = process.env.FRONTEND_URL;
 
 router.get("/login/success", (req, res) => {
 	if (req.user) {
