@@ -7,13 +7,12 @@ dotenv.config();
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
 const activityRoutes = require('./routes/activity');
-const partnerRoutes = require('./routes/user');
 const tagRoutes = require('./routes/tag');
 const emailRoutes = require('./routes/email');
 const session = require("express-session");
 const passport = require("passport");
 require("./services/passport");
-
+const isAuthenticated = require('./middlewares/isAuthenticated');
 const PORT = process.env.PORT || 3000;
 
 const app = express();
@@ -42,6 +41,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use('/auth', authRoutes);
+app.use(isAuthenticated);
 app.use('/user', userRoutes);
 app.use('/activity', activityRoutes);
 app.use('/tag', tagRoutes);
