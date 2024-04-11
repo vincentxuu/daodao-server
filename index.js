@@ -51,6 +51,9 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+const redirectUrl = process.env.NODE_ENV === 'production' ? 'https://daodaoedu.tw' : 'https://dev.daodao-notion-test.pages.dev';
+console.log(redirectUrl);
+
 async function startServer() {
     await mongoConnect();
     app.listen(PORT, () => {
