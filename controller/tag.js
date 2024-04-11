@@ -5,16 +5,13 @@ const User = require("../models/user.model")
 async function calculateTagCounts() {
   const users = await User.find({});
 
-  const tagCounts = {};
-  for (const user of users) {
-    for (const tag of user.tagList) {
-      if (tagCounts[tag]) {
-        tagCounts[tag]++;
-      } else {
-        tagCounts[tag] = 1;
-      }
-    }
-  }
+  const tagCounts = users.reduce((counts, user) => {
+    user.tagList.forEach(tag => {
+      counts[tag] = (counts[tag] || 0) + 1;
+    });
+    return counts;
+  }, {});
+  
 
   const sortedTags = Object.entries(tagCounts)
     .sort((a, b) => b[1] - a[1])
@@ -28,13 +25,18 @@ async function calculateTagCounts() {
 async function getTopTags(req, res) {
   try {
     const topTags = await calculateTagCounts();
-    res.json(topTags);
+    console.log(topTags);
+
+    const tagList = topTags.map((item) => item.tag)
+    const topTenTags = tagList.slice(0, 10);
+
+    console.log(topTenTags);
+    res.json(topTenTags);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'An error occurred' });
   }
 }
-
 
 module.exports = {
   getTopTags,

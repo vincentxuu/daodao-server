@@ -77,7 +77,7 @@ const createActivity = async (req, res) => {
         const existingActivity = await Activity.findOne({ title });
 
         if (existingActivity) {
-           res.json({"通知":"活動已建立"});
+           res.json({message:"Activity already exists"});
         } else {
             const newActivity = new Activity(req.body);
             const data = await newActivity.save();
