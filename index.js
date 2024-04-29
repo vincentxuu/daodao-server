@@ -12,7 +12,6 @@ const emailRoutes = require('./routes/email');
 const session = require("express-session");
 const passport = require("passport");
 require("./services/passport");
-const isAuthenticated = require('./middlewares/isAuthenticated');
 const PORT = process.env.PORT || 3000;
 
 const app = express();
