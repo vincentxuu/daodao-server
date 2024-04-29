@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { update ,getPartner} = require("../controller/user");
+const isAuthenticated = require("../middlewares/isAuthenticated");
 
 const CLIENT_URL = process.env.FRONTEND_URL;
 
@@ -17,9 +18,8 @@ router.get("/login/success", (req, res) => {
 });
 
 router.get("/", getPartner);
-
 router.get("/:id", getPartner);
-
+router.use(isAuthenticated);
 router.put("/:id", update);
 
 router.get("/logout", (req, res) => {

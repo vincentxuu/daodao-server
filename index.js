@@ -41,7 +41,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use('/auth', authRoutes);
-app.use(isAuthenticated);
 app.use('/user', userRoutes);
 app.use('/activity', activityRoutes);
 app.use('/tag', tagRoutes);
