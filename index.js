@@ -41,7 +41,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use('/auth', authRoutes);
-app.use(isAuthenticated);
 app.use('/user', userRoutes);
 app.use('/activity', activityRoutes);
 app.use('/tag', tagRoutes);
@@ -50,9 +49,6 @@ app.use('/email', emailRoutes);
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
-const redirectUrl = process.env.NODE_ENV === 'production' ? 'https://daodaoedu.tw' : 'https://dev.daodao-notion-test.pages.dev';
-console.log(redirectUrl);
-
 
 async function startServer() {
     await mongoConnect();
