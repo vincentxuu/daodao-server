@@ -25,7 +25,8 @@ const getPartner = async (req, res, next) => {
 
         if (tag) {
             tag =  tag.split(',');
-            filter.tag = { $in: tag };
+            console.log(tag)
+            filter.tagList = { $in: tag };
         }
         if (search) {
             let searchQuery = { 
