@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const isAuthenticated = require("../middlewares/isAuthenticated");
 const { createActivity,updateActivity ,getActivity,deleteActivity,changeActivityStatus} = require("../controller/activity");
 const isAuthenticated = require("../middlewares/isAuthenticated");
 

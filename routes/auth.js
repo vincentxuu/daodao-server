@@ -17,6 +17,7 @@ router.get("/google/callback", passport.authenticate("google"), async(req, res) 
     const time = Date.now();
     const payload = {_id, name,time};
     const token = generateToken(payload);
+    console.log("google/callback_token", token);
     return res.redirect(`${process.env.FRONTEND_URL}?id=${req.user._id}&token=${token}`);
     //TODO: different case redirect
     // res.send({

@@ -9,6 +9,7 @@ const userRoutes = require('./routes/user');
 const activityRoutes = require('./routes/activity');
 const tagRoutes = require('./routes/tag');
 const emailRoutes = require('./routes/email');
+const imageRoutes = require('./routes/image');
 const session = require("express-session");
 const passport = require("passport");
 require("./services/passport");
@@ -44,6 +45,7 @@ app.use('/user', userRoutes);
 app.use('/activity', activityRoutes);
 app.use('/tag', tagRoutes);
 app.use('/email', emailRoutes);
+app.use('/image', imageRoutes);
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
