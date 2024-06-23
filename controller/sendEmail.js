@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer');
-const { EMAIL_ADDRESS ,EMAIL_PASSWORD} = process.env;
+const { EMAIL_ADDRESS, EMAIL_PASSWORD } = process.env;
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -10,9 +10,8 @@ const transporter = nodemailer.createTransport({
 });
 
 const sendEmail = (req, res) => {
-  const { from,to,url, subject, text ,userId,information ,roleList,name,photoUrl,title,activityTitle} = req.body;
-
-const htmlContent = `
+  const { from, to, url, subject, text, userId, information, roleList, name, photoUrl, title, activityTitle } = req.body;
+  const htmlContent = `
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
   xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -236,7 +235,7 @@ const htmlContent = `
                                               style="display:inline-block;padding:0 8px 0 0;border-radius:50%;"> <span
                                               style="display:inline-block;padding:12px 0 0;vertical-align:top;"><span
                                                 style="display:block;font-size: 16px;font-weight: 700;padding: 0 0 4px;">${name}</span>
-                                              <span style="display:block;font-size: 14px;">${roleList[0]??''}</span> </span><span
+                                              <span style="display:block;font-size: 14px;">${roleList[0] ?? ''}</span> </span><span
                                               style="display:inline-block;text-align:right;vertical-align:top;padding:25px 0 0 10px;float:right;"><a
                                                 href=${url}/partner/detail?id=${userId}
                                                 style="color:#536166;font-family:Noto Sans TC;font-size:14px;font-weight:normal;Margin:0;text-decoration:none;text-transform:none;border:#16B9B3 1px solid;border-radius:20px;cursor:auto;padding:10px 20px;background:#DEF5F5;"
@@ -274,28 +273,28 @@ const htmlContent = `
                                         <td align="left" style="font-size:0px;padding:0;word-break:break-word;">
                                           <div
                                             style="font-family:Noto Sans TC;font-size:13px;font-weight:400;line-height:140%;text-align:left;color:#536166;">
-                                            ${information[0]??''}</div>
+                                            ${information[0] ?? ''}</div>
                                         </td>
                                       </tr>
                                       <tr>
                                         <td align="left" style="font-size:0px;padding:0;word-break:break-word;">
                                           <div
                                             style="font-family:Noto Sans TC;font-size:13px;font-weight:400;line-height:140%;text-align:left;color:#536166;">
-                                            ${information[1]??''}</div>
+                                            ${information[1] ?? ''}</div>
                                         </td>
                                       </tr>
                                       <tr>
                                         <td align="left" style="font-size:0px;padding:0;word-break:break-word;">
                                           <div
                                             style="font-family:Noto Sans TC;font-size:13px;font-weight:400;line-height:140%;text-align:left;color:#536166;">
-                                            ${information[2]??''}</div>
+                                            ${information[2] ?? ''}</div>
                                         </td>
                                       </tr>
                                       <tr>
                                         <td align="left" style="font-size:0px;padding:0;word-break:break-word;">
                                           <div
                                             style="font-family:Noto Sans TC;font-size:13px;font-weight:400;line-height:140%;text-align:left;color:#536166;">
-                                            ${information[3]??''}</div>
+                                            ${information[3] ?? ''}</div>
                                         </td>
                                       </tr>
                                     </table>
@@ -554,28 +553,28 @@ const htmlContent = `
                                                 <td align="left" style="font-size:0px;padding:0;word-break:break-word;">
                                                   <div
                                                     style="font-family:Noto Sans TC;font-size:13px;font-weight:400;line-height:140%;text-align:left;color:#536166;">
-                                                    ${information[0]??''}</div>
+                                                    ${information[0] ?? ''}</div>
                                                 </td>
                                               </tr>
                                               <tr>
                                                 <td align="left" style="font-size:0px;padding:0;word-break:break-word;">
                                                   <div
                                                     style="font-family:Noto Sans TC;font-size:13px;font-weight:400;line-height:140%;text-align:left;color:#536166;">
-                                                    ${information[1]??''}</div>
+                                                    ${information[1] ?? ''}</div>
                                                 </td>
                                               </tr>
                                               <tr>
                                                 <td align="left" style="font-size:0px;padding:0;word-break:break-word;">
                                                   <div
                                                     style="font-family:Noto Sans TC;font-size:13px;font-weight:400;line-height:140%;text-align:left;color:#536166;">
-                                                    ${information[2]??''}</div>
+                                                    ${information[2] ?? ''}</div>
                                                 </td>
                                               </tr>
                                               <tr>
                                                 <td align="left" style="font-size:0px;padding:0;word-break:break-word;">
                                                   <div
                                                     style="font-family:Noto Sans TC;font-size:13px;font-weight:400;line-height:140%;text-align:left;color:#536166;">
-                                                    ${information[3]??''}</div>
+                                                    ${information[3] ?? ''}</div>
                                                 </td>
                                               </tr>
                                             </table>
